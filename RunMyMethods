@@ -1,0 +1,66 @@
+package edu.umsl;
+
+import java.util.*;
+
+public class RunMyMethods 
+{
+    public static void main(String[] args) 
+    {    
+        MyMethods mm = new MyMethods(); //call instance methods
+//        mm.Product();
+//        mm.FindTwelves();
+//        mm.MinMaxAvg();
+//        mm.MyGrader();
+//        mm.Exit();
+    
+        Scanner sc = new Scanner(System.in);
+        int input;
+        do
+        {
+            System.out.println("Please choose an option below: ");
+            System.out.println("1) Product");
+            System.out.println("2) Find Twelves");
+            System.out.println("3) Min/Max/Average");
+            System.out.println("4) My Grader");
+            System.out.println("5) Factorial");
+            System.out.println("6) Fibonacci");
+            System.out.println("7) Exit");
+             
+            input = sc.nextInt();
+             
+            if(input == 1)
+            {
+                mm.Product();
+            }
+            else if(input == 2)
+            {
+                mm.FindTwelves();
+            }
+            else if(input == 3)
+            {
+                mm.MinMaxAvg();
+            }
+            else if(input == 4)
+            {
+                mm.MyGrader();
+            }
+            else if(input == 5)
+            {
+                mm.Factorial();
+            }
+            else if(input == 6)
+            {
+                mm.Fibonacci();
+            }
+             else if(input == 7)
+            {
+                mm.Exit();
+            }
+            else 
+            {
+                System.out.println("Apparently I’m volatile, self-obsessed, and don’t play well with others. -T. Stark");
+            }
+        }while(input != 7);
+        
+    }
+}
