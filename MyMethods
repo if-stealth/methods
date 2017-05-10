@@ -1,0 +1,218 @@
+package edu.umsl;
+
+import java.util.*;
+
+public class MyMethods 
+{
+        
+    public void Product()
+    {
+        int input;
+        int temp = 1;
+        int count = 0;
+        int positive = 0;
+        int negative = 0;
+        
+        System.out.println("Please enter a series of numbers");
+        System.out.println("(Negatives will be ignored)");
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        
+        StringTokenizer st = new StringTokenizer( line );
+        while (st.hasMoreTokens())
+        { 
+            input = Integer.parseInt( st.nextToken() );
+            count++;
+            
+            if(input<0)
+            { 
+                negative++;
+            }
+            else if (input>0)
+            {
+                positive++;
+                temp = input * temp;
+            }
+           
+        } 
+        System.out.println("Final product is: " + temp);
+        System.out.println("Count of all numbers entered is: " + count++);
+        System.out.println("Number of positives entered is: " + positive++);
+        System.out.println("Number of negatives entered is: " + negative++);
+    }
+ 
+    public void FindTwelves()
+    {
+        int input;
+        int count = 0;
+        int counttwelve = 0;
+        int first_occ = 0;
+        int last_occ = 0;
+        
+        System.out.println("Program will determine an index when 12 is entered");
+        System.out.println("Please enter a series of numbers:");
+        Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        
+        StringTokenizer st = new StringTokenizer( line );
+
+        while (st.hasMoreTokens())
+        { 
+            input = Integer.parseInt( st.nextToken() );
+            count++;
+            if (input==12)
+            {
+                if (counttwelve==0)
+                {
+                    first_occ = count;
+                    last_occ = count;
+                }
+                
+                else 
+                {  
+                    last_occ = count;
+                }
+              
+                counttwelve++;
+            }
+        
+        }
+            System.out.println("Count of all numbers inputted: " + count); 
+            System.out.println("Number of twelves occurs: " + counttwelve); 
+            System.out.println("First twelve occurs at: " + first_occ); 
+            System.out.println("Last twelve occurs at: " + last_occ); 
+    }
+        
+    public void MinMaxAvg()
+    {
+        Scanner sc = new Scanner(System.in);
+        double max = Double.MIN_VALUE;    
+        double min = Double.MAX_VALUE; 
+        int count = 0;             
+        double sum = 0; 
+        System.out.println("Please enter integers in a series. (Enter Done to Exit)");
+        while (sc.hasNextDouble()) 
+        { 
+        double input = sc.nextDouble();
+            if (input > max) 
+            {
+                max = input;
+            }
+            if (input < min) 
+            {
+                min = input;
+            }
+            count++;               
+            sum += input;   
+        }
+        if (count > 0) 
+        {                                         
+            double average = sum / count;
+            System.out.println("Maximum = "  + max);
+            System.out.println("Minimum = "  + min);
+            System.out.println("Average = "  + average);
+        } 
+        else 
+        {
+            System.out.println("Error: You entered no data!");
+        }
+    }
+          
+    public void MyGrader()
+    {
+        int  input;
+        int sumA; 
+        int sumB;
+        int sumC;
+        int sumD;
+        int sumF;
+        sumA=sumB=sumC=sumD=sumF=0;
+	
+        System.out.println("Please enter your grade scores in a series: ");
+	Scanner sc = new Scanner(System.in);
+        String line = sc.nextLine();
+        StringTokenizer st = new StringTokenizer( line );
+
+        while (st.hasMoreTokens())
+        { 
+            input = Integer.parseInt( st.nextToken() );
+
+            if(input>=90)
+            {
+                sumA++;
+                System.out.println(input + "      A");
+	    }
+            else
+                if(input >= 70)
+                {
+                   sumB++;
+                   System.out.println(input + "      B");
+                }
+            else if(input >= 50)
+            {
+                sumC++;
+                System.out.println(input + "      C");
+            }
+            else if(input >= 35)
+            {
+                sumD++;
+                System.out.println(input + "      D");
+            }
+            else
+            {
+                sumF++;
+                System.out.println(input + "      F");
+            }
+        }
+        
+        System.out.println("The total number of A's is " + sumA );
+        System.out.println("The total number of B's is " + sumB );
+        System.out.println("The total number of C's is " + sumC );
+        System.out.println("The total number of D's is " + sumD );
+        System.out.println("The total number of F's is " + sumF );
+    }
+          
+    public void Factorial()
+    {
+        int input;
+        int i,fact=1; 
+         
+        System.out.println("Program will determine a product of all positive descending integers");
+        System.out.println("Please enter a number to begin the factorial process:");
+        Scanner sc = new Scanner(System.in);
+        input = sc.nextInt();
+                  
+        for(i=1;i<=input;i++)
+        {    
+            fact=fact*i;    
+        }    
+  
+     System.out.println("Factorial of "+input+" is: "+fact); 
+    }
+    
+    public void Fibonacci()
+    {                   
+                int i,a=1,b=1,c=0,f;
+		Scanner input=new Scanner(System.in);
+		System.out.println("Please enter a value of total numbers to be executed as a fibonacci series:");
+                System.out.println("This will execute a fibonacci series:");
+		f=input.nextInt();
+		System.out.print(a);
+		System.out.print(" " + b);
+		for(i=0;i<f-2;i++) 
+                {
+			c=a+b;
+			a=b;
+			b=c;
+			System.out.print(" " + c);
+		}
+		System.out.println();
+		System.out.print(f+"th value of the series is: "+ c);    
+    }
+    
+    public void Exit()
+    {
+    System.out.println("EXIT successful");
+    }
+ 
+}
